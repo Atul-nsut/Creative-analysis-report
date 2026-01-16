@@ -116,6 +116,49 @@ export default function Index() {
     }
   };
 
+  const handleExportPDF = () => {
+    window.print();
+  };
+
+  const handleExportCSV = () => {
+    // Prepare CSV data
+    const csvRows = [];
+    csvRows.push(['Pillar', 'Metric', 'Salty Score', 'Giva Score', 'Gap', 'Salty Comment', 'Recommendations']);
+
+    pillarOrder.forEach((pillar) => {
+      const pillarName = PILLAR_CONFIG[pillar].label;
+      const entityMetrics = entitySummary[pillar];
+      const benchmarkMetrics = benchmarkSummary[pillar];
+
+      Object.keys(entityMetrics).forEach((key) => {
+        const gap = calculateGap(entityMetrics[key].score, benchmarkMetrics[key].score);
+        const metricName = key.split("_").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+
+        csvRows.push([
+          pillarName,
+          metricName,
+          entityMetrics[key].score,
+          benchmarkMetrics[key].score,
+          gap,
+          `"${entityMetrics[key].comment.replace(/"/g, '""')}"`,
+          `"${entityMetrics[key].actions_next_steps_recommendations.replace(/"/g, '""')}"`
+        ]);
+      });
+    });
+
+    const csvContent = csvRows.map(row => row.join(',')).join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+
+    link.setAttribute('href', url);
+    link.setAttribute('download', `creative-analysis-report-${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Sticky Header */}
@@ -131,11 +174,11 @@ export default function Index() {
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={handleExportPDF}>
                 <FileText className="h-4 w-4 mr-1.5" />
                 PDF
               </Button>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={handleExportCSV}>
                 <Download className="h-4 w-4 mr-1.5" />
                 CSV
               </Button>
@@ -149,7 +192,7 @@ export default function Index() {
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <h3 className="font-semibold text-foreground">
-                    Primary Entity (Report A)
+                    Salty
                   </h3>
                   <p className="text-xs text-muted-foreground">
                     Your Brand · 14 metrics analyzed
@@ -173,10 +216,10 @@ export default function Index() {
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <h3 className="font-semibold text-foreground">
-                    Industry Benchmark (Report B)
+                    Giva
                   </h3>
                   <p className="text-xs text-muted-foreground">
-                    Best-in-class · 14 metrics
+                    Industry Benchmark · 14 metrics
                   </p>
                 </div>
               </div>

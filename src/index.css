@@ -165,3 +165,75 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Print styles for PDF export */
+@media print {
+  /* Hide interactive elements */
+  button,
+  .sticky,
+  [role="button"],
+  .no-print {
+    display: none !important;
+  }
+
+  /* Remove fixed positioning */
+  header,
+  nav {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  /* Ensure content flows properly */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Expand all collapsed sections */
+  [data-state="closed"] {
+    display: block !important;
+  }
+
+  /* Adjust page breaks */
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Remove shadows and backgrounds for cleaner print */
+  .shadow,
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  /* Ensure charts and cards are visible */
+  .bg-card,
+  .bg-muted {
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  /* Make sure text is readable */
+  .text-muted-foreground {
+    color: #6b7280 !important;
+  }
+
+  /* Adjust font sizes for print */
+  body {
+    font-size: 11pt;
+  }
+
+  h1 {
+    font-size: 20pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+  }
+}

@@ -32,8 +32,8 @@ export function ComparisonBar({
       </div>
       {showLabels && (
         <div className="flex justify-between mt-1.5 text-xs text-muted-foreground">
-          <span>Entity: {entityValue}%</span>
-          <span className="text-[hsl(var(--score-vhigh))]">Benchmark: {benchmarkValue}%</span>
+          <span>Salty: {entityValue}%</span>
+          <span className="text-[hsl(var(--score-vhigh))]">Giva: {benchmarkValue}%</span>
         </div>
       )}
     </div>

@@ -44,95 +44,93 @@ export const entityReportJSON: ReportData[] = [
   {
     summary: {
       V_visual: {
-        color_consistency: {
-          score: "Medium",
-          values: { "Brand Colors": 45, "Off-Brand": 35, "Neutral": 20 },
-          comment: "Color palette shows inconsistency across campaigns. Brand colors appear in less than 50% of creative assets, diluting brand recognition.",
-          actions_next_steps_recommendations: "Establish a strict color guide with primary, secondary, and accent colors. Audit all existing creatives and update to comply with brand standards. Implement automated color checking in the design review process.",
+        stop_style: {
+          score: "V High",
+          values: {
+            "Product demo": 1,
+            "Promo-led": 0,
+            "Brand/Editorial": 10,
+            "Hybrid/Neutral/Other": 6
+          },
+          comment: "Most creatives prominently employ an Editorial or Hybrid stop style emphasizing clean, polished layouts and a magazine-like aesthetic, reflecting a strong visual brand identity. A subset effectively uses Meme or Disruptor styles to inject humor or disruptiveness, scored very highly, enhancing engagement.",
+          actions_next_steps_recommendations: "Maintain and scale the Editorial and Hybrid stop styles due to their proven high engagement and brand clarity. Test increasing the use of Meme or Disruptor styles in select creatives to diversify appeal and capture attention through humor or edginess.",
         },
-        visual_hierarchy: {
-          score: "Low",
-          values: { "Clear Hierarchy": 20, "Moderate": 40, "Unclear": 40 },
-          comment: "Visual hierarchy is frequently unclear, making it difficult for viewers to identify key messages and CTAs quickly.",
-          actions_next_steps_recommendations: "Redesign templates with clear focal points. Use size, contrast, and positioning to guide viewer attention. A/B test hierarchy variations to identify optimal layouts.",
-        },
-        image_quality: {
+        visual_weight: {
           score: "High",
-          values: { "Professional": 70, "Stock": 20, "Low Quality": 10 },
-          comment: "Image quality is generally strong with professional photography dominating the creative mix.",
-          actions_next_steps_recommendations: "Maintain current quality standards. Consider expanding custom photography library. Phase out remaining stock imagery where possible.",
-        },
-        typography_readability: {
-          score: "Medium",
-          values: { "Excellent": 30, "Good": 45, "Poor": 25 },
-          comment: "Typography choices are inconsistent, with some creatives using fonts that reduce readability on mobile devices.",
-          actions_next_steps_recommendations: "Standardize on 2-3 brand fonts with clear use cases. Increase minimum font sizes for mobile. Test readability across device types before launch.",
+          values: {
+            "Light": 12,
+            "Minimal": 1,
+            "Medium": 3
+          },
+          comment: "Visual weight across creatives consistently trends light, with ample white space and limited elements to enable quick scanning and reduce clutter. Some creatives use Medium weight to balance multiple elements but retain clarity.",
+          actions_next_steps_recommendations: "Continue prioritizing light visual weight for ease of scanning and focus. Optimize Medium visual weights by improving hierarchy and spacing to avoid scan fatigue while maintaining rich content.",
         },
       },
       A_audience_resonance: {
-        emotional_appeal: {
-          score: "Low",
-          values: { "High Emotion": 15, "Moderate": 35, "Low Emotion": 50 },
-          comment: "Creatives lack emotional triggers that drive engagement. Most assets rely on rational messaging without emotional hooks.",
-          actions_next_steps_recommendations: "Incorporate storytelling elements into creative briefs. Use customer testimonials and real scenarios. Test emotional vs rational messaging variants.",
+        hook_tactic: {
+          score: "V High",
+          values: {
+            "Hybrid (Persona callout, Benefit)": 5,
+            "Problem": 2,
+            "Benefit": 2,
+            "Curiosity": 4,
+            "Relatable": 3
+          },
+          comment: "A dominant pattern reveals Hybrid hook tactics combining persona callouts with benefits or curiosity, scoring very high overall. Curiosity and relatable themes also score highly in driving immediate audience interest. Problem-oriented hooks deliver strong relevance when addressing pain points.",
+          actions_next_steps_recommendations: "Prioritize Hybrid hooks that blend clear persona targeting with aspirational or benefit messaging to maximize relevance and appeal. Integrate more curiosity and relatable hooks selectively to boost engagement and differentiate campaigns.",
         },
-        relevance_targeting: {
-          score: "Medium",
-          values: { "Highly Relevant": 40, "Somewhat": 35, "Generic": 25 },
-          comment: "Targeting shows moderate alignment with audience segments but lacks personalization depth.",
-          actions_next_steps_recommendations: "Implement dynamic creative optimization. Create segment-specific messaging variants. Use behavioral data to inform creative direction.",
-        },
-        cultural_alignment: {
-          score: "High",
-          values: { "Strong": 65, "Moderate": 25, "Weak": 10 },
-          comment: "Cultural references and language show strong alignment with target demographics.",
-          actions_next_steps_recommendations: "Continue cultural research initiatives. Expand localization efforts for new markets. Monitor cultural trends for creative opportunities.",
+        persona: {
+          score: "V High",
+          values: {
+            "Fashion-focused women": 15,
+            "Comfort/loungewear seekers": 0,
+            "Deal/discount seekers": 0,
+            "Unknown/Other": 0
+          },
+          comment: "Nearly all creatives effectively target clear personas, typically professional, stylish women or trend-conscious young adults, with consistently very high resonance scores. This precise persona alignment underpins strong engagement.",
+          actions_next_steps_recommendations: "Maintain rigorous persona targeting focusing on professional, stylish women and young trend-driven consumers. Expand persona refinement experiments around adjacent segments to unlock incremental reach while preserving high resonance.",
         },
       },
       L_logic_and_clarity: {
-        message_clarity: {
-          score: "Medium",
-          values: { "Crystal Clear": 35, "Somewhat Clear": 40, "Confusing": 25 },
-          comment: "Core messages are often buried under secondary information, reducing immediate comprehension.",
-          actions_next_steps_recommendations: "Lead with single key message per creative. Remove competing messages. Use the 3-second test for headline clarity.",
+        message_style: {
+          score: "High",
+          values: {
+            "Unclear": 0,
+            "Announcement/Sale/Event": 5,
+            "Feature/How-it-works": 1,
+            "Story/Showcase/Other": 6
+          },
+          comment: "Most creatives use Single claim or Announcement styles with clear, focused messaging, sustaining high engagement. Problem-solution and story-led styles also perform well in conveying context and emotional resonance.",
+          actions_next_steps_recommendations: "Sustain use of clear, focused message styles like Single claim and Announcement to maintain clarity. Test enhancing story-led and problem-solution messaging to deepen emotional connection and improve persuasive impact.",
         },
-        value_proposition: {
+        offer_clarity: {
           score: "Low",
-          values: { "Compelling": 20, "Average": 45, "Weak": 35 },
-          comment: "Value propositions fail to differentiate from competitors and lack specificity.",
-          actions_next_steps_recommendations: "Conduct competitive messaging audit. Develop unique selling propositions per product line. Quantify benefits wherever possible.",
-        },
-        logical_flow: {
-          score: "Medium",
-          values: { "Seamless": 40, "Adequate": 35, "Disjointed": 25 },
-          comment: "Creative sequences show adequate logical flow but miss opportunities for narrative cohesion.",
-          actions_next_steps_recommendations: "Map customer journey to creative sequence. Ensure each touchpoint builds on previous. Create connected story arcs across campaigns.",
+          values: {
+            "None": 16
+          },
+          comment: "A pervasive weakness exists with virtually all creatives scoring low on offer clarity due to absence of visible price, discount, trial, or promotional details, creating a critical gap in value communication.",
+          actions_next_steps_recommendations: "Urgently incorporate explicit offer details such as pricing, discounts, or trial terms to strengthen value proposition and conversion potential. Test different formats of offer clarity including overlays and text callouts to identify optimal presentation.",
         },
       },
       E_execution_and_action: {
         cta_strength: {
           score: "Low",
-          values: { "Strong CTA": 15, "Moderate": 40, "Weak/None": 45 },
-          comment: "Call-to-action elements are frequently weak or missing entirely, leading to poor conversion rates.",
-          actions_next_steps_recommendations: "Add explicit CTAs to all creatives. Use action-oriented language. Test CTA placement, size, and color variations. Implement urgency triggers.",
+          values: {
+            "None": 8,
+            "Direct": 5,
+            "Soft": 3
+          },
+          comment: "CTA strength is predominantly low across creatives, with most lacking explicit or strong calls to action, posing a critical conversion bottleneck. Only a few creatives have direct or soft CTAs which still leave room for improvement.",
+          actions_next_steps_recommendations: "Immediately embed clear, direct CTAs like 'Shop now' prominently in all creatives to remove ambiguity and guide next steps. Experiment with CTA prominence, language, and placement to maximize click-through and conversion rates.",
         },
-        trust_signals: {
-          score: "Medium",
-          values: { "Multiple": 30, "Single": 45, "None": 25 },
-          comment: "Trust signals are present but underutilized. Social proof and credibility markers need emphasis.",
-          actions_next_steps_recommendations: "Integrate ratings, reviews, and testimonials prominently. Add security badges where relevant. Feature media mentions and awards.",
-        },
-        mobile_optimization: {
-          score: "High",
-          values: { "Optimized": 75, "Partial": 20, "Desktop Only": 5 },
-          comment: "Strong mobile optimization across most creatives with appropriate sizing and touch targets.",
-          actions_next_steps_recommendations: "Maintain mobile-first approach. Continue testing across device types. Optimize for emerging mobile formats.",
-        },
-        landing_alignment: {
+        trust_level: {
           score: "Low",
-          values: { "Perfect Match": 20, "Partial": 35, "Mismatch": 45 },
-          comment: "Significant disconnect between ad creatives and landing page experiences causes drop-off.",
-          actions_next_steps_recommendations: "Audit all ad-to-landing combinations. Create dedicated landing pages for key campaigns. Ensure visual and message continuity.",
+          values: {
+            "Medium": 7,
+            "Low": 9
+          },
+          comment: "Trust signals are inconsistently present, mostly low or medium, relying on basic brand name visibility but lacking social proof, reviews, ratings, or certifications, which dampens credibility.",
+          actions_next_steps_recommendations: "Introduce explicit trust elements such as customer ratings, testimonials, awards, or guarantees to elevate credibility and reduce purchase hesitation. Prioritize testing trust assets placement and format to optimize impact without clutter.",
         },
       },
     },
@@ -144,95 +142,97 @@ export const benchmarkReportJSON: ReportData[] = [
   {
     summary: {
       V_visual: {
-        color_consistency: {
+        stop_style: {
           score: "V High",
-          values: { "Brand Colors": 85, "Off-Brand": 10, "Neutral": 5 },
-          comment: "Industry leaders maintain 85%+ brand color consistency across all touchpoints, creating instant recognition.",
-          actions_next_steps_recommendations: "Best-in-class brands use automated brand compliance tools. They audit quarterly and maintain living style guides accessible to all teams.",
+          values: {
+            "Product demo": 4,
+            "Promo-led": 21,
+            "Brand/Editorial": 19,
+            "Hybrid/Neutral/Other": 56
+          },
+          comment: "Across creatives, a hybrid stop style combining product showcase and promotional offers dominates, frequently achieving very high scores for its appealing blend of editorial polish and promo-led elements.",
+          actions_next_steps_recommendations: "Maintain and scale the effective use of hybrid stop styles that balance product visibility with strong promotional messaging to maximize initial audience engagement.",
         },
-        visual_hierarchy: {
+        visual_weight: {
           score: "High",
-          values: { "Clear Hierarchy": 75, "Moderate": 20, "Unclear": 5 },
-          comment: "Top performers achieve clear visual hierarchy in 75%+ of creatives through systematic design frameworks.",
-          actions_next_steps_recommendations: "Leading brands use modular design systems with predefined hierarchy templates. They conduct eye-tracking studies to validate attention flow.",
-        },
-        image_quality: {
-          score: "V High",
-          values: { "Professional": 90, "Stock": 8, "Low Quality": 2 },
-          comment: "Best performers use 90%+ professional, custom imagery with consistent art direction.",
-          actions_next_steps_recommendations: "Top brands invest in dedicated creative studios and maintain extensive asset libraries. They use AI-powered image quality scoring.",
-        },
-        typography_readability: {
-          score: "High",
-          values: { "Excellent": 70, "Good": 25, "Poor": 5 },
-          comment: "Industry leaders achieve excellent readability through strict typographic standards and device-specific optimization.",
-          actions_next_steps_recommendations: "Best practices include minimum 16px body text, limited font families, and mandatory mobile preview approvals.",
+          values: {
+            "Light": 65,
+            "Medium": 26,
+            "Minimal": 8,
+            "Dense": 1
+          },
+          comment: "Most creatives employ a light visual weight with few, well-organized elements and clear hierarchy, enabling quick and easy scanning and contributing to high scores.",
+          actions_next_steps_recommendations: "Continue prioritizing light visual weight to promote fast comprehension; explore slight complexity only when it enhances storytelling without hindering scan efficiency.",
         },
       },
       A_audience_resonance: {
-        emotional_appeal: {
-          score: "High",
-          values: { "High Emotion": 65, "Moderate": 30, "Low Emotion": 5 },
-          comment: "Top performers create emotionally resonant content in 65%+ of creatives through strategic storytelling.",
-          actions_next_steps_recommendations: "Leading brands use emotional mapping frameworks and customer insight sessions to inform creative development.",
-        },
-        relevance_targeting: {
+        hook_tactic: {
           score: "V High",
-          values: { "Highly Relevant": 80, "Somewhat": 15, "Generic": 5 },
-          comment: "Best-in-class achieves 80%+ highly relevant targeting through advanced personalization.",
-          actions_next_steps_recommendations: "Top performers use DCO platforms, first-party data integration, and real-time personalization engines.",
+          values: {
+            "Offer": 54,
+            "Celebrity": 12,
+            "Curiosity": 16,
+            "Hybrid(Offer, Persona callout)": 18
+          },
+          comment: "The majority of creatives leverage a strong offer hook, particularly explicit discount calls prominently placed, with high to very high scores; curiosity and celebrity hooks appear less frequently but score highly when used.",
+          actions_next_steps_recommendations: "Focus on strengthening and consistently applying direct offer-based hooks to trigger immediate audience attention; selectively test curiosity hooks for brand engagement and celebrity hooks to elevate aspirational appeal.",
         },
-        cultural_alignment: {
+        persona: {
           score: "V High",
-          values: { "Strong": 85, "Moderate": 12, "Weak": 3 },
-          comment: "Industry leaders show 85%+ cultural alignment through dedicated cultural research teams.",
-          actions_next_steps_recommendations: "Best practices include cultural advisory boards, regional creative teams, and continuous social listening.",
+          values: {
+            "Fashion-focused women": 39,
+            "Comfort/loungewear seekers": 7,
+            "Deal/discount seekers": 49,
+            "Unknown/Other": 5
+          },
+          comment: "Personas largely center around fashion-conscious, deal-seeking Indian women interested in jewelry, often explicitly noted and scoring high to very high in resonance.",
+          actions_next_steps_recommendations: "Continue refining creatives to target fashion-conscious female deal-seekers with culturally relevant and jewelry-focused messaging; consider segmentation tests for subgroups like wedding shoppers or premium buyers to deepen persona connection.",
         },
       },
       L_logic_and_clarity: {
-        message_clarity: {
+        message_style: {
           score: "V High",
-          values: { "Crystal Clear": 80, "Somewhat Clear": 18, "Confusing": 2 },
-          comment: "Top performers achieve crystal clear messaging in 80%+ of creatives through rigorous testing.",
-          actions_next_steps_recommendations: "Industry leaders use message testing panels, 5-second comprehension tests, and iterative refinement processes.",
+          values: {
+            "Announcement/Sale/Event": 85,
+            "Feature/How-it-works": 4,
+            "Story/Showcase/Other": 8,
+            "Unclear": 3
+          },
+          comment: "Most creatives use clear announcement-style messaging focused on sales and events, explicitly framing discounts with very high clarity and effectiveness.",
+          actions_next_steps_recommendations: "Maintain the announcement (sale/event) messaging style for clarity and directness; test incorporating benefit-led or hybrid messaging only if they add unique value without diluting offer clarity.",
         },
-        value_proposition: {
-          score: "High",
-          values: { "Compelling": 70, "Average": 25, "Weak": 5 },
-          comment: "Best-in-class brands present compelling value propositions in 70%+ of creatives.",
-          actions_next_steps_recommendations: "Leading brands conduct regular competitive analysis, customer interviews, and value proposition workshops.",
-        },
-        logical_flow: {
-          score: "High",
-          values: { "Seamless": 72, "Adequate": 23, "Disjointed": 5 },
-          comment: "Top performers create seamless logical flow in over 70% of creative sequences.",
-          actions_next_steps_recommendations: "Best practices include journey mapping, sequential messaging frameworks, and cross-channel narrative planning.",
+        offer_clarity: {
+          score: "V High",
+          values: {
+            "Discount": 68,
+            "None": 29,
+            "Coupon": 3
+          },
+          comment: "Offer clarity is consistently very high, with explicit discount amounts and promotional codes clearly stated, ensuring logical and transparent value to the audience.",
+          actions_next_steps_recommendations: "Preserve explicit discount presentation and coupon code inclusion to sustain clarity; optimize layout to ensure the offer remains immediately visible even in more complex creatives.",
         },
       },
       E_execution_and_action: {
         cta_strength: {
-          score: "V High",
-          values: { "Strong CTA": 85, "Moderate": 12, "Weak/None": 3 },
-          comment: "Industry leaders include strong CTAs in 85%+ of creatives with proven conversion impact.",
-          actions_next_steps_recommendations: "Best-in-class uses CTA testing matrices, placement optimization, and urgency frameworks. Every creative has a primary action.",
-        },
-        trust_signals: {
           score: "High",
-          values: { "Multiple": 70, "Single": 25, "None": 5 },
-          comment: "Top performers integrate multiple trust signals in 70%+ of conversion-focused creatives.",
-          actions_next_steps_recommendations: "Leading brands maintain trust signal libraries, rotate social proof, and A/B test credibility elements.",
+          values: {
+            "None": 33,
+            "Direct": 59,
+            "Soft": 2,
+            "Strong": 6
+          },
+          comment: "A clear divide exists where many creatives lack explicit calls-to-action and score low, while those including direct, prominent 'SHOP NOW' buttons score high or very high.",
+          actions_next_steps_recommendations: "Urgently address the widespread gap of missing or weak CTAs by embedding clear, direct, action-oriented buttons in all creatives. Scale testing of CTA placements and labels to maximize conversion potential.",
         },
-        mobile_optimization: {
-          score: "V High",
-          values: { "Optimized": 92, "Partial": 7, "Desktop Only": 1 },
-          comment: "Best-in-class achieves 92%+ full mobile optimization with device-specific creative variants.",
-          actions_next_steps_recommendations: "Top performers use mobile-first design processes, automated responsive testing, and device-specific QA protocols.",
-        },
-        landing_alignment: {
-          score: "High",
-          values: { "Perfect Match": 75, "Partial": 20, "Mismatch": 5 },
-          comment: "Industry leaders achieve 75%+ perfect ad-to-landing alignment through integrated workflows.",
-          actions_next_steps_recommendations: "Best practices include modular landing page systems, message match audits, and cross-team creative reviews.",
+        trust_level: {
+          score: "Medium",
+          values: {
+            "Medium": 82,
+            "Low": 7,
+            "High": 11
+          },
+          comment: "Trust cues predominantly rely on the brand name 'GIVA' and professional product imagery, achieving medium scores; explicit trust signals like testimonials, ratings, or certifications are mostly absent.",
+          actions_next_steps_recommendations: "Introduce and test additional trust signals such as customer reviews, quality certifications, or awards to elevate the trust level beyond basic brand presence and improve audience confidence.",
         },
       },
     },
