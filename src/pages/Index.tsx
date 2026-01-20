@@ -1,7 +1,16 @@
 import { useState, useMemo } from "react";
-import { FileText, ChevronDown, Eye, Users, Brain, Zap, Filter } from "lucide-react";
+import { FileText, ChevronDown, Eye, Users, Brain, Zap, Filter, CalendarIcon, Image, Video, Search } from "lucide-react";
+import { format } from "date-fns";
+import { DateRange } from "react-day-picker";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Calendar } from "@/components/ui/calendar";
+import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -92,6 +101,21 @@ export default function Index() {
   const [selectedPillar, setSelectedPillar] = useState<PillarKey | "all">("all");
   const [tagFilter, setTagFilter] = useState("All");
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+  const [dateRange, setDateRange] = useState<DateRange | undefined>({
+    from: new Date(2024, 0, 1),
+    to: new Date(),
+  });
+  const [analysisType, setAnalysisType] = useState<"image" | "video" | "both">("both");
+  const [selectedBenchmark, setSelectedBenchmark] = useState("Giva");
+  const [metaAdsLink, setMetaAdsLink] = useState("");
+
+  const benchmarkOptions = [
+    "Giva",
+    "Jewelry Industry",
+    "Fashion Industry",
+    "Luxury Brands",
+    "E-commerce Leaders",
+  ];
 
   const entitySummary = entityReportJSON[0].summary;
   const benchmarkSummary = benchmarkReportJSON[0].summary;
@@ -155,10 +179,81 @@ export default function Index() {
                 Executive Summary
               </h1>
               <p className="text-sm text-muted-foreground">
-                Q4 2024 · Creative Analysis
+                Creative Analysis
               </p>
+              <div className="mt-2">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="sm" className="h-7">
+                      {analysisType === "image" && (
+                        <>
+                          <Image className="h-3.5 w-3.5 mr-1.5" />
+                          Image
+                        </>
+                      )}
+                      {analysisType === "video" && (
+                        <>
+                          <Video className="h-3.5 w-3.5 mr-1.5" />
+                          Video
+                        </>
+                      )}
+                      {analysisType === "both" && (
+                        <>
+                          <Image className="h-3.5 w-3.5 mr-1" />
+                          <Video className="h-3.5 w-3.5 mr-1.5" />
+                          Both
+                        </>
+                      )}
+                      <ChevronDown className="h-3.5 w-3.5 ml-1 opacity-50" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-[120px] bg-popover">
+                    <DropdownMenuItem onClick={() => setAnalysisType("image")}>
+                      <Image className="h-4 w-4 mr-2" />
+                      Image
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setAnalysisType("video")}>
+                      <Video className="h-4 w-4 mr-2" />
+                      Video
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setAnalysisType("both")}>
+                      <Image className="h-3.5 w-3.5 mr-1" />
+                      <Video className="h-3.5 w-3.5 mr-1" />
+                      Both
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
             <div className="flex items-center gap-2">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" size="sm" className="justify-start text-left font-normal">
+                    <CalendarIcon className="h-4 w-4 mr-1.5" />
+                    {dateRange?.from ? (
+                      dateRange.to ? (
+                        <>
+                          {format(dateRange.from, "MMM d, yyyy")} - {format(dateRange.to, "MMM d, yyyy")}
+                        </>
+                      ) : (
+                        format(dateRange.from, "MMM d, yyyy")
+                      )
+                    ) : (
+                      <span>Pick a date range</span>
+                    )}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="end">
+                  <Calendar
+                    initialFocus
+                    mode="range"
+                    defaultMonth={dateRange?.from}
+                    selected={dateRange}
+                    onSelect={setDateRange}
+                    numberOfMonths={2}
+                  />
+                </PopoverContent>
+              </Popover>
               <Button
                 variant="outline"
                 size="sm"
@@ -201,9 +296,39 @@ export default function Index() {
             <Card className="p-4 border border-[hsl(var(--score-vhigh)/0.3)] bg-[hsl(var(--score-vhigh)/0.02)]">
               <div className="flex items-center justify-between mb-3">
                 <div>
-                  <h3 className="font-semibold text-foreground">
-                    Giva
-                  </h3>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="flex items-center gap-1 text-left">
+                        <h3 className="font-semibold text-foreground">
+                          {selectedBenchmark}
+                        </h3>
+                        <ChevronDown className="h-4 w-4 opacity-50" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="w-[280px] bg-popover">
+                      <div className="px-2 py-2">
+                        <div className="relative">
+                          <Search className="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                          <Input
+                            type="text"
+                            placeholder="Meta ads library link"
+                            value={metaAdsLink}
+                            onChange={(e) => setMetaAdsLink(e.target.value)}
+                            className="h-8 text-xs pl-8"
+                          />
+                        </div>
+                      </div>
+                      <div className="border-t border-border my-1"></div>
+                      {benchmarkOptions.map((option) => (
+                        <DropdownMenuItem
+                          key={option}
+                          onClick={() => setSelectedBenchmark(option)}
+                        >
+                          {option}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                   <p className="text-xs text-muted-foreground">
                     Industry Benchmark · 14 metrics
                   </p>
