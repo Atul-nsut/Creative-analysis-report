@@ -108,6 +108,8 @@ export default function Index() {
   const [analysisType, setAnalysisType] = useState<"image" | "video" | "both">("both");
   const [selectedBenchmark, setSelectedBenchmark] = useState("Giva");
   const [metaAdsLink, setMetaAdsLink] = useState("");
+  const [selectedEntity, setSelectedEntity] = useState("Salty");
+  const [entityMetaAdsLink, setEntityMetaAdsLink] = useState("");
 
   const benchmarkOptions = [
     "Giva",
@@ -115,6 +117,13 @@ export default function Index() {
     "Fashion Industry",
     "Luxury Brands",
     "E-commerce Leaders",
+  ];
+
+  const entityOptions = [
+    "Salty",
+    "Your Brand 1",
+    "Your Brand 2",
+    "Custom Brand",
   ];
 
   const entitySummary = entityReportJSON[0].summary;
@@ -272,9 +281,39 @@ export default function Index() {
             <Card className="p-4 border border-border/50">
               <div className="flex items-center justify-between mb-3">
                 <div>
-                  <h3 className="font-semibold text-foreground">
-                    Salty
-                  </h3>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="flex items-center gap-1 text-left">
+                        <h3 className="font-semibold text-foreground">
+                          {selectedEntity}
+                        </h3>
+                        <ChevronDown className="h-4 w-4 opacity-50" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="w-[280px] bg-popover">
+                      <div className="px-2 py-2">
+                        <div className="relative">
+                          <Search className="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                          <Input
+                            type="text"
+                            placeholder="Meta ads library link"
+                            value={entityMetaAdsLink}
+                            onChange={(e) => setEntityMetaAdsLink(e.target.value)}
+                            className="h-8 text-xs pl-8"
+                          />
+                        </div>
+                      </div>
+                      <div className="border-t border-border my-1"></div>
+                      {entityOptions.map((option) => (
+                        <DropdownMenuItem
+                          key={option}
+                          onClick={() => setSelectedEntity(option)}
+                        >
+                          {option}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                   <p className="text-xs text-muted-foreground">
                     Your Brand · 14 metrics analyzed
                   </p>
