@@ -77,7 +77,7 @@ export function MetricComparisonCard({
             {/* Entity Column */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-sm">Salty</span>
+                <span className="font-semibold text-sm">Bombay Shaving Company</span>
                 <ScoreChip score={entityData.score} size="sm" />
               </div>
 
@@ -90,7 +90,7 @@ export function MetricComparisonCard({
 
               <div>
                 <p className="text-xs font-medium text-muted-foreground mb-1">
-                  Salty Commentary
+                  Bombay Shaving Company Commentary
                 </p>
                 <p className="text-sm text-foreground leading-relaxed">
                   {entityData.comment}
@@ -110,7 +110,7 @@ export function MetricComparisonCard({
             {/* Benchmark Column */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-sm">Giva</span>
+                <span className="font-semibold text-sm">Gillette</span>
                 <ScoreChip score={benchmarkData.score} size="sm" />
               </div>
 
@@ -123,7 +123,7 @@ export function MetricComparisonCard({
 
               <div>
                 <p className="text-xs font-medium text-muted-foreground mb-1">
-                  Giva Commentary
+                  Gillette Commentary
                 </p>
                 <p className="text-sm text-foreground leading-relaxed">
                   {benchmarkData.comment}
@@ -132,7 +132,7 @@ export function MetricComparisonCard({
 
               <div className="bg-[hsl(var(--score-vhigh)/0.05)] rounded-lg p-3 border border-[hsl(var(--score-vhigh)/0.2)]">
                 <p className="text-xs font-medium text-[hsl(var(--score-vhigh))] mb-1">
-                  Giva Playbook
+                  Gillette Playbook
                 </p>
                 <p className="text-sm text-foreground leading-relaxed">
                   {benchmarkData.actions_next_steps_recommendations}

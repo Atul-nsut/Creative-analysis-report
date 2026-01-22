@@ -106,21 +106,21 @@ export default function Index() {
     to: new Date(),
   });
   const [analysisType, setAnalysisType] = useState<"image" | "video" | "both">("both");
-  const [selectedBenchmark, setSelectedBenchmark] = useState("Giva");
+  const [selectedBenchmark, setSelectedBenchmark] = useState("Gillette");
   const [metaAdsLink, setMetaAdsLink] = useState("");
-  const [selectedEntity, setSelectedEntity] = useState("Salty");
+  const [selectedEntity, setSelectedEntity] = useState("Bombay Shaving Company");
   const [entityMetaAdsLink, setEntityMetaAdsLink] = useState("");
 
   const benchmarkOptions = [
-    "Giva",
-    "Jewelry Industry",
-    "Fashion Industry",
-    "Luxury Brands",
+    "Gillette",
+    "Men's Grooming Industry",
+    "Personal Care Industry",
+    "P&G Brands",
     "E-commerce Leaders",
   ];
 
   const entityOptions = [
-    "Salty",
+    "Bombay Shaving Company",
     "Your Brand 1",
     "Your Brand 2",
     "Custom Brand",
@@ -315,7 +315,7 @@ export default function Index() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <p className="text-xs text-muted-foreground">
-                    Your Brand · 14 metrics analyzed
+                    Your Brand · 8 metrics analyzed
                   </p>
                 </div>
               </div>
@@ -369,7 +369,7 @@ export default function Index() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <p className="text-xs text-muted-foreground">
-                    Industry Benchmark · 14 metrics
+                    Industry Benchmark · 8 metrics analyzed
                   </p>
                 </div>
               </div>
