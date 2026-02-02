@@ -39,125 +39,106 @@ export const SCORE_VALUES: Record<string, number> = {
 
 export const SCORE_ORDER = ["Low", "Medium", "High", "V High"];
 
-// Entity Report (Report A) - Bombay Shaving Company
+// Entity Report (Report A) - Your Brand
 export const entityReportJSON: ReportData[] = [
   {
     summary: {
       V_visual: {
         thumb_stop_trigger: {
-          score: "V High",
+          score: "Medium",
           values: {
-            "Product demo": 63,
-            "Hybrid": 25,
-            "UGC-native": 17,
-            "Promo-led": 16,
-            "Meme": 6,
-            "Editorial": 5
+            "Product-based": 15,
+            "UGC-focused": 45,
+            "Hybrid variations": 10,
+            "Disruptor": 2
           },
-          comment: "Stop styles are decisively led by Product demo (63), with a strong secondary cluster across Hybrid (19), UGC-native (17), and Promo-led (16). Meme (6) and Editorial (5) exist but remain small. With a V High score, the pattern is clear: product-forward stopping power dominates, with hybrid/promo variants providing meaningful lift and variety.",
-          actions_next_steps_recommendations: "Keep Product demo as the default scale lane. Use Hybrid + UGC-native as the controlled variation lane (rotate formats without losing product clarity). Ensure Promo-led executions still anchor on product visibility. Keep Meme/Editorial as small test buckets only—promote them only if they win on outcomes.",
+          comment: "Creatives favor UGC-native and product demo stop styles, offering high effectiveness due to relatable authenticity and demonstrative nature.",
+          actions_next_steps_recommendations: "Maintain UGC-native and product demo styles for strong engagement. Experiment with more product-based thumb stops to showcase product benefits directly. Consider adding disruptor elements sparingly to break pattern blindness.",
         },
         visual_weight: {
-          score: "High",
+          score: "Medium",
           values: {
-            "Light": 74,
-            "Medium": 47,
-            "Minimal": 15,
-            "Dense": 8
+            "Light": 37,
+            "Medium": 31,
+            "Dense": 9
           },
-          comment: "Visual weight is concentrated in Light (74) and Medium (47), with Minimal (15) as a smaller lane and Dense (8) as the clear drag. The combined High score aligns with strong scan-ability driven by lighter compositions, while dense layouts remain the primary clarity risk.",
-          actions_next_steps_recommendations: "Bias production toward Light and clean Medium layouts. Treat Dense as an exception case and strip elements aggressively when used. Use Minimal intentionally for single-claim executions where speed-to-understanding is the priority.",
+          comment: "Light visual weight in creatives aids quick scanning and higher engagement; dense visuals lower engagement.",
+          actions_next_steps_recommendations: "Prioritize light visual weight layouts for optimal comprehension and retention. Reduce dense visual executions and test minimal layouts for single-claim messages.",
         },
       },
       A_audience_resonance: {
         hook_tactic: {
-          score: "V High",
+          score: "Medium",
           values: {
-            "Demo": 37,
-            "Offer-related": 24,
-            "Problem": 17,
-            "Hybrid": 13,
-            "Demo-related": 10,
-            "Question": 9,
-            "Problem-benefit-curiosity": 8,
-            "None": 7
+            "Demo/Curiosity": 10,
+            "Problem-focused": 38,
+            "Benefit/Celebrity": 3,
+            "Before after": 18,
+            "Relatable": 1
           },
-          comment: "Hook tactics are dominated by Demo (37) and Offer-related (24), with Problem (17) and Hybrid (13) forming the next tier. A non-trivial None bucket (7) persists. With a V High score, the strongest openings are those that immediately show the product and/or anchor on clear offer signals.",
-          actions_next_steps_recommendations: "Scale Demo + Offer-related as the primary hook lanes. Keep Problem as the supporting lane for relevance framing. Reduce 'None' by enforcing a hook-first rule: every creative must declare its opening tactic. Use Question and curiosity-leaning variants as smaller, deliberate test buckets.",
+          comment: "Problem-focused and before-after hooks dominate, capturing attention; curiosity hooks perform well too.",
+          actions_next_steps_recommendations: "Test and optimize problem-solution and before-after hooks; cautiously use curiosity in support. Expand demo-based hooks to showcase product effectiveness directly.",
         },
         persona_alignment: {
-          score: "High",
+          score: "Medium",
           values: {
-            "Men seeking grooming solutions": 23,
-            "Deal-/Value-seeking grooming men": 13,
-            "Other personas": 12,
-            "Grooming-conscious and practical men": 21,
-            "Premium grooming interested men": 10
+            "Skincare and health conscious": 15,
+            "Hair-focused": 15,
+            "General skincare/hair concerns": 35,
+            "Other": 10
           },
-          comment: "Primary persona is unambiguous: Men seeking grooming solutions (20). Secondary scale cluster is Deal-/Value-seeking grooming men (13), Other personas (12), Grooming-conscious and practical men (11), and Premium grooming interested men (10). Smaller tails include Grooming-conscious men (5) and Male grooming enthusiast (5). With a High score, alignment is strong—but the 'Other personas' volume is a clear classification/targeting blur.",
-          actions_next_steps_recommendations: "Treat Men seeking grooming solutions as the main scale lane with consistent framing. Split the secondary cluster into two explicit lanes: Deal-/Value-seeking vs Premium grooming, and tailor offer/benefit emphasis accordingly. Reduce 'Other personas' by tightening persona cues so creatives land in explicit buckets instead of a catch-all.",
+          comment: "Precise targeting for young adults with skin or hair concerns yields high relevance.",
+          actions_next_steps_recommendations: "Continue targeting niche personas aligned with skin or hair demographics for strong connection and relevance. Reduce 'Other' bucket by defining clearer persona segments in creative briefs.",
         },
       },
       L_logic_and_clarity: {
         message_style: {
-          score: "V High",
+          score: "High",
           values: {
-            "How-it-works": 44,
-            "Announcement": 33,
-            "Problem-solution": 19,
-            "Feature-led": 15,
-            "How-it-works / Problem-solution": 8,
-            "Comparison": 4,
-            "Unclear": 3,
-            "Story-led": 3
+            "How-it-works": 12,
+            "Problem-solution": 45,
+            "Before-after/Single claim": 18
           },
-          comment: "Message style is led by How-it-works (44) and Announcement (33), with Problem-solution (19) and Feature-led (15) as strong supporting lanes. Unclear remains low (3). The V High score is consistent with this distribution: most creatives are structurally clear and direct in explaining value or stating the deal.",
-          actions_next_steps_recommendations: "Keep How-it-works and Announcement as the core production lanes. Use Problem-solution to sharpen relevance where pain points are explicit. Keep Unclear at (near) zero by enforcing single-claim discipline. Use Comparison selectively to clarify differentiation when it increases clarity—not complexity.",
+          comment: "Problem-solution and before-after messaging delivers clarity and engagement, aiding logical flow.",
+          actions_next_steps_recommendations: "Maintain clear messaging styles for conveying benefits and transformations. Expand how-it-works content to educate users on product mechanisms and build trust.",
         },
         offer_clarity: {
-          score: "Low",
+          score: "Medium",
           values: {
-            "None": 101,
-            "Discount and bundle offers": 22,
-            "Price and guarantee related": 8,
-            "Bundle": 3,
-            "Coupon": 3,
-            "Vague": 3,
-            "Discount": 2,
-            "Guarantee": 1
+            "None/Vague": 64,
+            "Clarity on Price/Discount": 12
           },
-          comment: "Offer clarity is structurally weak: None overwhelms the set (101), dwarfing Discount and bundle offers (22) and all other explicit offer forms (single digits). The combined Low score is fully explained by the dominance of 'None' and the small footprint of concrete pricing/discount/coupon language.",
-          actions_next_steps_recommendations: "Make explicit offer articulation non-negotiable: aggressively convert 'None' into clear Discount/Bundle/Price/Coupon/Guarantee expressions. Eliminate Vague (3) by forcing quantifiable terms (numbers, defined bundles, or explicit guarantee language). Treat explicit offer variants as a scale lane, not an exception.",
+          comment: "Low offer clarity due to lack of price or deal info hinders purchase incentives.",
+          actions_next_steps_recommendations: "Introduce clear offer info for better conversion potential and reduced friction. Convert vague offers into explicit discount percentages, bundle deals, or price callouts.",
         },
       },
       E_execution_and_action: {
         cta_strength: {
-          score: "Low",
+          score: "High",
           values: {
-            "None": 135,
-            "Direct": 4,
-            "Direct and strong CTAs": 3,
-            "Soft": 2
+            "None/Soft": 17,
+            "Direct": 52,
+            "Strong": 8
           },
-          comment: "CTA strength is the biggest execution gap: None dominates (135) with only trace presence of Direct (4), Direct and strong CTAs (3), and Soft (2). The Low score is unavoidable given how consistently CTAs are missing.",
-          actions_next_steps_recommendations: "Standardize an explicit CTA in every creative and treat 'None' as a fail state. Prioritize Direct CTAs as default; keep Soft CTAs only as controlled tests. Ensure CTA appears clearly and early enough to be noticed without extra scanning.",
+          comment: "Absence or softness in CTA affects readiness, but some videos have clear instructions.",
+          actions_next_steps_recommendations: "Integrate strong, direct CTAs with prominent placement for improved conversions. Reduce soft CTAs and ensure every creative has explicit action language.",
         },
         trust_level: {
-          score: "Medium",
+          score: "V High",
           values: {
-            "Medium": 113,
-            "High": 20,
-            "Low": 11
+            "Medium": 11,
+            "High": 53,
+            "Very High": 13
           },
-          comment: "Trust sits mostly at Medium (113), with a smaller High pocket (20) and a meaningful Low tail (11). The Medium score reflects a lot of baseline credibility, but insufficient volume of strong proof to consistently push creatives into High.",
-          actions_next_steps_recommendations: "Systematically lift Medium into High by standardizing stronger proof modules already implied by the taxonomy (e.g., guarantee/proof cues) and replicating what's present in the High bucket. Eliminate Low by ensuring every creative carries baseline trust elements consistently, not intermittently.",
+          comment: "Medium to very high trust through effective use of ingredient callouts and endorsements.",
+          actions_next_steps_recommendations: "Leverage strong trust cues and enhance medium trust creatives with validated proof points and testimonials. Continue using ingredient transparency and expert endorsements.",
         },
       },
     },
   },
 ];
 
-// Benchmark Report (Report B) - Gillette (Industry Best-in-Class)
+// Benchmark Report (Report B) - Industry Best (Competitor)
 export const benchmarkReportJSON: ReportData[] = [
   {
     summary: {
@@ -165,123 +146,100 @@ export const benchmarkReportJSON: ReportData[] = [
         thumb_stop_trigger: {
           score: "V High",
           values: {
-            "Hybrid styles combining Product demo, Promo-led and Catalog": 50,
-            "Product demo": 56,
-            "Promo-led": 34,
-            "UGC-native": 9,
-            "Hard sell": 4,
-            "Before after": 1,
+            "UGC-native": 34,
+            "Hybrid": 5,
+            "Product demo": 14,
+            "Hybrid(Editorial, Brand-led)": 1,
+            "Brand-led": 2,
             "Editorial": 1,
-            "Disruptor": 1
+            "Hybrid(UGC-native, Product demo)": 9,
+            "Other": 6
           },
-          comment: "Stop styles are led by Product demo (56), with Promo-led (34) and Hybrid (33) as the next-largest patterns; Hybrid styles combining Product demo, Promo-led and Catalog also has meaningful volume (17). Overall Thumb Stop Trigger remains V High, driven by consistent product visibility and offer-forward framing where present.",
-          actions_next_steps_recommendations: "Scale Product demo-led executions while preserving Promo-led and Hybrid formats. Run explicit variants that pair Product demo with UGC-native (9) to retain authenticity while showcasing use. Keep Hard sell limited (4) and treat Disruptor/Editorial/Before after (1 each) as controlled test buckets.",
+          comment: "Creatives emphasize UGC-native and hybrid styles with product demos, reflecting strong engagement and high scores for visual clarity and polished presentation.",
+          actions_next_steps_recommendations: "Maintain UGC-native styles for authenticity; experiment with product demo and hybrid forms for sustained attention.",
         },
         visual_weight: {
           score: "Medium",
           values: {
-            "Light": 80,
-            "Medium": 54,
-            "Dense": 11,
-            "Minimal": 7
+            "Minimal": 2,
+            "Light": 64,
+            "Medium": 5
           },
-          comment: "Visual weight skews toward Light (80) and Medium (54), with smaller pockets of Dense (11) and Minimal (7). With a Medium score, the set is generally scannable, but the medium/dense share indicates clear headroom to simplify layouts for faster comprehension.",
-          actions_next_steps_recommendations: "Bias future builds toward Light visual weight with a single focal point and clear hierarchy. Where Medium/Dense layouts are unavoidable, tighten copy and reduce competing elements to improve scan speed. Use Minimal formats selectively for quick-hit messages where one claim is sufficient.",
+          comment: "Visuals mostly maintain medium weight, accommodating multiple products. Minimal to light layouts enhance readability, while dense visuals impede scanning.",
+          actions_next_steps_recommendations: "Streamline visuals to improve scan ease. Test light layouts for readability, especially on mobile.",
         },
       },
       A_audience_resonance: {
         hook_tactic: {
           score: "V High",
           values: {
-            "Offer": 47,
-            "Problem": 35,
-            "Benefit": 24,
-            "Demo": 12,
-            "Comparison": 11,
-            "Before after": 4,
-            "Hybrid(Benefit/Demo)": 4,
-            "Relatable": 3,
-            "Curiosity": 3,
-            "Celebrity": 1,
-            "Stat": 1
+            "Problem": 24,
+            "Question": 5,
+            "Hybrid(Curiosity, Demo)": 2,
+            "Curiosity": 11,
+            "Demo": 9,
+            "Benefit": 7,
+            "Other hooks": 11
           },
-          comment: "Hook tactics are dominated by Offer (47), followed by Problem (35) and Benefit (24). Demo (12) and Comparison (11) are meaningful supporting tactics, while the rest remain low-volume. Combined hook tactic score stays V High, anchored in value/offer and problem-solution framing.",
-          actions_next_steps_recommendations: "Keep Offer as the primary scale lane. Systematically layer Problem or Benefit into Offer-led openers to widen appeal without losing clarity. Use Demo and Comparison as structured variants; keep low-frequency tactics (Relatable 3, Curiosity 3, Celebrity 1, Stat 1) as measured tests.",
+          comment: "Hooks effectively capture attention with problem-focused openings and curiosity-driven questions, receiving high scores.",
+          actions_next_steps_recommendations: "Expand problem-led and curiosity hooks. Integrate hybrid hooks for stronger engagement.",
         },
         persona_alignment: {
           score: "V High",
           values: {
-            "Value-focused male shavers and shoppers": 38,
-            "Health and hygiene-conscious individuals": 19,
-            "Men seeking deodorant protections and qualities": 16,
-            "Young active men grooming enthusiasts": 9,
-            "Male French-speaking grooming": 8,
-            "value-seeking males": 8,
-            "Unknown and other personas": 7,
-            "Value-oriented bulk shoppers and deal-seekers": 6,
-            "Deal-seeking shavers and razor users": 6,
-            "Quality and premium-seeking men": 3
+            "Skincare-conscious young women": 15,
+            "Young female skincare enthusiast": 6,
+            "Oily skin women": 7,
+            "Health-conscious young women": 7,
+            "Young Indian women": 2,
+            "Other skincare-interested females": 28
           },
-          comment: "Primary persona is 'Value-focused male shavers and shoppers' (38) — the clear scale lane. Secondary cluster is 'Health and hygiene-conscious individuals' (19) and 'Men seeking deodorant protections and qualities' (16). Mid-tier lanes include 'Young active French-speaking men grooming enthusiasts' (9), 'Male French-speaking grooming' (8), and 'French-speaking and Canadian value-seeking males' (8). Long-tail buckets ('Unknown and other personas' 7; 'Value-oriented bulk shoppers and deal-seekers' 6; 'Deal-seeking shavers and razor users' 6; 'Quality and premium-seeking men' 3) are present but not primary. Overall Persona Alignment remains V High.",
-          actions_next_steps_recommendations: "Prioritize creative volume and iteration cadence for 'Value-focused male shavers and shoppers'. Create a dedicated test matrix for the two secondary clusters (19 and 16) using existing hook/message patterns already present in the data. Treat the French-speaking personas as a distinct lane with consistent language execution. Reduce reliance on 'Unknown and other personas' by tightening persona definition and labeling in briefs.",
+          comment: "Targeted creatives resonate with skincare-conscious young women, enhancing relevance with specific concerns.",
+          actions_next_steps_recommendations: "Refine targeting with clear demographic cues and skin concerns. Explore niche persona segments to broaden reach.",
         },
       },
       L_logic_and_clarity: {
         message_style: {
           score: "V High",
           values: {
-            "Announcement styles": 43,
-            "Problem-solution": 41,
-            "Comparison": 19,
-            "Single claim": 16,
-            "How-it-works": 10,
-            "Feature-led": 10,
-            "Announcement": 7,
-            "Proof and How-it-works style": 3,
-            "Proof-led": 2,
-            "Before-after": 1
+            "Problem-solution": 27,
+            "How-it-works": 26,
+            "Feature-led": 6,
+            "Other message styles": 12
           },
-          comment: "Messaging concentrates heavily in 'Announcement styles' (43) and 'Problem-solution' (41), with additional support from 'Comparison' (19) and 'Single claim' (16). 'How-it-works' (10) and 'Feature-led' (10) appear at mid volume, while 'Announcement' (7), 'Proof and How-it-works style' (3), 'Proof-led' (2), and 'Before-after' (1) are minor. Combined message style score stays V High, reflecting consistent use of direct, structured frameworks.",
-          actions_next_steps_recommendations: "Keep 'Announcement styles' and 'Problem-solution' as the core messaging templates and standardize repeatable variants for testing. Expand 'Comparison' and 'Single claim' where differentiation or simplicity is needed. When using 'How-it-works' or 'Feature-led', keep visuals light to protect scanability; use proof-led formats only when a clear proof point is available.",
+          comment: "Messaging effectively communicates benefits with problem-solution and how-it-works styles, securing high scores.",
+          actions_next_steps_recommendations: "Focus on problem-solution and narrative messaging. Integrate before-after visuals and feature-led elements for depth and clarity.",
         },
         offer_clarity: {
-          score: "V High",
+          score: "Low",
           values: {
-            "None": 95,
-            "Discount offers": 43,
-            "Bundle": 4,
-            "Vague": 3,
-            "Discount": 2,
-            "Cashback": 2,
-            "Bonus": 1,
-            "Quantity": 1,
-            "Bundle offers": 1
+            "None": 71
           },
-          comment: "Offer clarity is uneven: 'None' is the largest bucket (95), indicating many creatives show no explicit offer mechanics, while explicit 'Discount offers' are also frequent (43). Smaller offer types are low-volume (Bundle 4, Discount 2, Vague 3, Cashback 2, Bundle offers 1, Bonus 1, Quantity 1). Combined score remains V High, but the distribution shows a large execution gap driven by the 'None' bucket.",
-          actions_next_steps_recommendations: "Make offer presence non-optional by converting a meaningful share of the 95 'None' creatives into explicit offer formats. Prioritize scaling 'Discount offers' and 'Bundle' where already used, and remove 'Vague' offers by forcing concrete terms in creative QA. Keep low-volume offer types (Bonus/Cashback/Quantity) as controlled experiments until performance or volume supports expansion.",
+          comment: "Offer clarity remains low, impacted by the absence of explicit terms in most creatives.",
+          actions_next_steps_recommendations: "Introduce explicit offers like pricing or trials to enhance clarity and conversion. Test timing and presentation of offers.",
         },
       },
       E_execution_and_action: {
         cta_strength: {
           score: "Low",
           values: {
-            "None": 128,
-            "Direct": 14,
-            "Soft": 6,
-            "Strong": 4
+            "Direct": 6,
+            "None": 44,
+            "Soft": 21
           },
-          comment: "CTA strength is the clearest conversion weakness: 'None' dominates (128), with limited 'Direct' (14), 'Soft' (6), and 'Strong' (4). With a Low score, the portfolio is consistently under-instrumented for action.",
-          actions_next_steps_recommendations: "Mandate an explicit CTA on every creative. Default to 'Direct' CTAs and build a small 'Strong' CTA test set; use 'Soft' CTAs only where direct phrasing underperforms. Standardize CTA placement and visibility to prevent regression back into 'None'.",
+          comment: "Lack of strong CTAs lowers scores. Direct CTAs show potential when present.",
+          actions_next_steps_recommendations: "Embed clear CTAs with strong language. Test CTAs by persona or channel for enhanced conversions.",
         },
         trust_level: {
           score: "High",
           values: {
-            "High and Very high": 77,
-            "Medium": 45,
-            "High or above trust levels": 30
+            "High": 39,
+            "Medium": 27,
+            "Low": 3,
+            "Very high": 2
           },
-          comment: "Trust is net-positive: 'High and Very high' (77) plus 'High or above trust levels' (30) outweighs 'Medium' (45). Overall trust level stays High, supported by brand presence (Gillette) and, where used, quantified/scientific proof points and endorsements.",
-          actions_next_steps_recommendations: "Maintain consistent brand presence and retailer/partner cues (e.g., Walmart where applicable) to protect the high-trust baseline. Increase the share of creatives that include explicit proof points (quantified claims, testing/endorsement cues) to move Medium (45) upward, without adding visual density that would hurt scanability.",
+          comment: "Trust is built through testimonials and scientific claims but varies by creative execution.",
+          actions_next_steps_recommendations: "Scale strong trust signals like certifications and testimonials. Strengthen brand-led creatives with explicit endorsements.",
         },
       },
     },

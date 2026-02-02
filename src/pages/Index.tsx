@@ -106,23 +106,23 @@ export default function Index() {
     to: new Date(),
   });
   const [analysisType, setAnalysisType] = useState<"image" | "video" | "both">("both");
-  const [selectedBenchmark, setSelectedBenchmark] = useState("Gillette");
+  const [selectedBenchmark, setSelectedBenchmark] = useState("Dot & Key");
   const [metaAdsLink, setMetaAdsLink] = useState("");
-  const [selectedEntity, setSelectedEntity] = useState("Bombay Shaving Company");
+  const [selectedEntity, setSelectedEntity] = useState("Pilgrim");
   const [entityMetaAdsLink, setEntityMetaAdsLink] = useState("");
 
   const benchmarkOptions = [
-    "Gillette",
-    "Men's Grooming Industry",
+    "Dot & Key",
+    "Skincare Industry",
     "Personal Care Industry",
-    "P&G Brands",
-    "E-commerce Leaders",
+    "Beauty & Wellness",
+    "D2C Leaders",
   ];
 
   const entityOptions = [
-    "Bombay Shaving Company",
-    "Your Brand 1",
-    "Your Brand 2",
+    "Pilgrim",
+    "Brand Variant 1",
+    "Brand Variant 2",
     "Custom Brand",
   ];
 
