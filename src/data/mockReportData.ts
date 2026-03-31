@@ -86,10 +86,10 @@ export const entityReportJSON: ReportData[] = [
           score: "High",
           values: {
             "Indian Car Buyers": 36,
-            "Aspirational & Style-conscious": 26,
+            "Aspirational Buyers": 26,
             "Value-conscious Buyers": 13,
-            "Tech-savvy & Premium Seekers": 7,
-            "SUV & Adventure Seekers": 6
+            "SUV & Adventure Seekers": 8,
+            "Tech-savvy Seekers": 5
           },
           comment: "Personas targeted include Indian car buyers, aspirational, value-conscious, urban, and EV-focused consumers. Alignment is strong with adventurous, affluent, and tech-savvy Indian SUV buyers.",
           actions_next_steps_recommendations: "Continue refining messaging for these well-defined personas, incorporating localized cultural cues. Introduce broader segmentation tests engaging urban professionals and value-conscious EV buyers to diversify reach."
@@ -192,12 +192,12 @@ export const benchmarkReportJSON: ReportData[] = [
         persona_alignment: {
           score: "High",
           values: {
-            "Aspirational & Style-conscious": 78,
+            "Resilience-focused Individuals": 71,
             "Indian Car Buyers": 15,
-            "Tech-savvy & Premium Seekers": 18,
-            "SUV & Adventure Seekers": 12,
-            "Value-conscious Buyers": 10,
-            "Safety & Family-focused": 7
+            "Aspirational Buyers": 11,
+            "Tech-savvy Seekers": 9,
+            "SUV & Adventure Seekers": 8,
+            "Safety & Family-focused": 6
           },
           comment: "Video creatives target individuals valuing resilience, clearly communicated through text and visual elements. Image creatives target distinct personas such as aspirational Indian car buyers, tech-savvy and safety-conscious individuals, and young professionals, with evident alignment between visual cues and persona characteristics strengthening audience resonance.",
           actions_next_steps_recommendations: "Optimize persona targeting by refining messaging to speak directly to resilience attributes in video. Continue tailoring image creative elements to clearly signal consumer identity and needs. Test additional persona segments adjacent to resilience to broaden appeal. Increase focus on aspirational and tech-savvy personas who consistently show strong engagement potential."
