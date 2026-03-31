@@ -39,106 +39,114 @@ export const SCORE_VALUES: Record<string, number> = {
 
 export const SCORE_ORDER = ["Low", "Medium", "High", "V High"];
 
-// Entity Report (Report A) - Your Brand
+// Entity Report (Report A) - Maruti Suzuki Nexa
 export const entityReportJSON: ReportData[] = [
   {
     summary: {
       V_visual: {
         thumb_stop_trigger: {
-          score: "Medium",
+          score: "High",
           values: {
-            "Product-based": 15,
-            "UGC-focused": 45,
-            "Hybrid variations": 10,
-            "Disruptor": 2
+            "Brand-led": 41,
+            "Promo-led": 37,
+            "Product Demo": 27,
+            "Hybrid Styles": 9,
+            "Cinematic": 16
           },
-          comment: "Creatives favor UGC-native and product demo stop styles, offering high effectiveness due to relatable authenticity and demonstrative nature.",
-          actions_next_steps_recommendations: "Maintain UGC-native and product demo styles for strong engagement. Experiment with more product-based thumb stops to showcase product benefits directly. Consider adding disruptor elements sparingly to break pattern blindness.",
+          comment: "Across creatives, hybrid, product demo, promo-led, and cinematic stop styles dominate, reflecting a strategy balancing aspirational messaging with product and offer presentation. Preference for cinematic and hybrid stop styles is evident, leveraging strong production quality and dynamic visual storytelling.",
+          actions_next_steps_recommendations: "Maintain and scale the use of hybrid stop styles combining aspirational branding with strong product visuals to maximize engagement. Invest in varied scenic backdrops and product showcases to sustain engagement."
         },
         visual_weight: {
-          score: "Medium",
+          score: "High",
           values: {
-            "Light": 37,
-            "Medium": 31,
-            "Dense": 9
+            "Light": 83,
+            "Medium": 18,
+            "Minimal": 13,
+            "Dense": 1
           },
-          comment: "Light visual weight in creatives aids quick scanning and higher engagement; dense visuals lower engagement.",
-          actions_next_steps_recommendations: "Prioritize light visual weight layouts for optimal comprehension and retention. Reduce dense visual executions and test minimal layouts for single-claim messages.",
+          comment: "Most creatives employ light or minimal visual weight, enabling clear focal points and efficient scan ability, while medium density is present where multiple elements coexist but remain manageable.",
+          actions_next_steps_recommendations: "Optimize visual weight by maintaining light to minimal styling for clarity and scan speed; where medium visual weight is necessary, optimize text hierarchy and reduce clutter to prevent scanning difficulty."
         },
       },
       A_audience_resonance: {
         hook_tactic: {
-          score: "Medium",
+          score: "High",
           values: {
-            "Demo/Curiosity": 10,
-            "Problem-focused": 38,
-            "Benefit/Celebrity": 3,
-            "Before after": 18,
-            "Relatable": 1
+            "Benefit-led": 59,
+            "Offer-led": 35,
+            "Demo-led": 7,
+            "Social Proof": 4,
+            "Problem-led": 2,
+            "Others": 6
           },
-          comment: "Problem-focused and before-after hooks dominate, capturing attention; curiosity hooks perform well too.",
-          actions_next_steps_recommendations: "Test and optimize problem-solution and before-after hooks; cautiously use curiosity in support. Expand demo-based hooks to showcase product effectiveness directly.",
+          comment: "Offers and benefits dominate in hook tactics, with high engagement from offer-driven creatives and aspirational messaging. Problem and demo hooks perform strongly, especially when combined with offers.",
+          actions_next_steps_recommendations: "Test amplifying offer-based hooks with clear benefit messaging to optimize audience resonance. Scale hook tactics integrating clear offers or product demos; blend problem and offer hooks to elevate engagement."
         },
         persona_alignment: {
-          score: "Medium",
+          score: "High",
           values: {
-            "Skincare and health conscious": 15,
-            "Hair-focused": 15,
-            "General skincare/hair concerns": 35,
-            "Other": 10
+            "Indian Car Buyers": 36,
+            "Aspirational & Style-conscious": 26,
+            "Value-conscious Buyers": 13,
+            "Tech-savvy & Premium Seekers": 7,
+            "SUV & Adventure Seekers": 6
           },
-          comment: "Precise targeting for young adults with skin or hair concerns yields high relevance.",
-          actions_next_steps_recommendations: "Continue targeting niche personas aligned with skin or hair demographics for strong connection and relevance. Reduce 'Other' bucket by defining clearer persona segments in creative briefs.",
+          comment: "Personas targeted include Indian car buyers, aspirational, value-conscious, urban, and EV-focused consumers. Alignment is strong with adventurous, affluent, and tech-savvy Indian SUV buyers.",
+          actions_next_steps_recommendations: "Continue refining messaging for these well-defined personas, incorporating localized cultural cues. Introduce broader segmentation tests engaging urban professionals and value-conscious EV buyers to diversify reach."
         },
       },
       L_logic_and_clarity: {
         message_style: {
-          score: "High",
+          score: "V High",
           values: {
-            "How-it-works": 12,
-            "Problem-solution": 45,
-            "Before-after/Single claim": 18
+            "Announcement": 91,
+            "Feature-led": 11,
+            "Story-led": 11,
+            "Problem-solution": 2
           },
-          comment: "Problem-solution and before-after messaging delivers clarity and engagement, aiding logical flow.",
-          actions_next_steps_recommendations: "Maintain clear messaging styles for conveying benefits and transformations. Expand how-it-works content to educate users on product mechanisms and build trust.",
+          comment: "A prevalent message style is the single claim or announcement to ensure clarity. Most creatives adopt announcement or story-led styles, effectively framing product launches or narratives.",
+          actions_next_steps_recommendations: "Maintain clear, single-claim message styles, test minor narrative variations to enhance engagement, and develop problem-solution messaging styles for product benefits and launches."
         },
         offer_clarity: {
-          score: "Medium",
+          score: "V High",
           values: {
-            "None/Vague": 64,
-            "Clarity on Price/Discount": 12
+            "Price & Discount": 76,
+            "None": 34,
+            "Demo & Guarantee": 5
           },
-          comment: "Low offer clarity due to lack of price or deal info hinders purchase incentives.",
-          actions_next_steps_recommendations: "Introduce clear offer info for better conversion potential and reduced friction. Convert vague offers into explicit discount percentages, bundle deals, or price callouts.",
+          comment: "Most creatives present high clarity on price and discount offers, though low clarity persists where no explicit offers are visible. Creatives with explicit pricing score very high.",
+          actions_next_steps_recommendations: "Address low offer clarity by incorporating explicit, prominent value propositions like prices, discounts, or guarantees. Standardize offer visibility across all creatives for enhanced conversion potential."
         },
       },
       E_execution_and_action: {
         cta_strength: {
-          score: "High",
+          score: "Low",
           values: {
-            "None/Soft": 17,
-            "Direct": 52,
-            "Strong": 8
+            "None": 87,
+            "Direct": 15,
+            "Soft": 12,
+            "Strong": 1
           },
-          comment: "Absence or softness in CTA affects readiness, but some videos have clear instructions.",
-          actions_next_steps_recommendations: "Integrate strong, direct CTAs with prominent placement for improved conversions. Reduce soft CTAs and ensure every creative has explicit action language.",
+          comment: "A gap exists with many creatives lacking explicit CTAs, resulting in low conversion potential. Most creatives lack compelling directive CTAs.",
+          actions_next_steps_recommendations: "Introduce strong, clear CTAs like 'Book Test Drive', prominently guiding users to actions. Test variations in wording, placement, and design for conversion uplift."
         },
         trust_level: {
-          score: "V High",
+          score: "Medium",
           values: {
-            "Medium": 11,
-            "High": 53,
-            "Very High": 13
+            "Medium": 90,
+            "High": 13,
+            "Very High": 6,
+            "Low": 6
           },
-          comment: "Medium to very high trust through effective use of ingredient callouts and endorsements.",
-          actions_next_steps_recommendations: "Leverage strong trust cues and enhance medium trust creatives with validated proof points and testimonials. Continue using ingredient transparency and expert endorsements.",
+          comment: "Trust levels hover around medium, relying on brand logos and some assurances. There's a lack of explicit proof points like testimonials or ratings, limiting perceived credibility.",
+          actions_next_steps_recommendations: "Enhance trust by integrating customer testimonials, awards, or ratings. Leverage brand heritage and supplement with explicit credibility signals to elevate user confidence."
         },
       },
     },
   },
 ];
 
-// Benchmark Report (Report B) - Industry Best (Competitor)
+// Benchmark Report (Report B) - Hyundai
 export const benchmarkReportJSON: ReportData[] = [
   {
     summary: {
@@ -146,100 +154,99 @@ export const benchmarkReportJSON: ReportData[] = [
         thumb_stop_trigger: {
           score: "V High",
           values: {
-            "UGC-native": 34,
-            "Hybrid": 5,
-            "Product demo": 14,
-            "Hybrid(Editorial, Brand-led)": 1,
-            "Brand-led": 2,
-            "Editorial": 1,
-            "Hybrid(UGC-native, Product demo)": 9,
-            "Other": 6
+            "Brand-led": 82,
+            "Product Demo": 37,
+            "Hybrid Styles": 14,
+            "Promo-led": 2,
+            "Editorial": 7
           },
-          comment: "Creatives emphasize UGC-native and hybrid styles with product demos, reflecting strong engagement and high scores for visual clarity and polished presentation.",
-          actions_next_steps_recommendations: "Maintain UGC-native styles for authenticity; experiment with product demo and hybrid forms for sustained attention.",
+          comment: "Brand-led and Product demo stop styles dominate across image and video creatives, frequently combined as hybrids to balance product visibility with aspirational brand storytelling. Video creatives rely exclusively on Brand-led stops anchored by celebrity presence and emotional messaging, while image creatives diversify with product demo and hybrid approaches.",
+          actions_next_steps_recommendations: "Maintain and scale the Brand-led stop style leveraging celebrity and brand initiatives. Continue combining product demonstration with aspirational brand themes in image creatives. Explore additional brand storytelling elements to deepen engagement without diluting aspirational messaging."
         },
         visual_weight: {
-          score: "Medium",
+          score: "High",
           values: {
-            "Minimal": 2,
-            "Light": 64,
-            "Medium": 5
+            "Light": 104,
+            "Medium": 19,
+            "Dense": 9,
+            "Minimal": 8
           },
-          comment: "Visuals mostly maintain medium weight, accommodating multiple products. Minimal to light layouts enhance readability, while dense visuals impede scanning.",
-          actions_next_steps_recommendations: "Streamline visuals to improve scan ease. Test light layouts for readability, especially on mobile.",
+          comment: "Light visual weight dominates across both formats, facilitating quick and effortless scanning with high scores. Image creatives rated 'Dense' with multiple text blocks and visuals increase scanning effort and lower scores, while video creatives consistently maintain light visual weight with clean backgrounds.",
+          actions_next_steps_recommendations: "Prioritize light visual weight across all creatives to support strong stop style effectiveness. Reduce text density and clarify hierarchy in image creatives. Test subtle variations in visual density to gauge impact on engagement while preserving clarity and focus."
         },
       },
       A_audience_resonance: {
         hook_tactic: {
           score: "V High",
           values: {
-            "Problem": 24,
-            "Question": 5,
-            "Hybrid(Curiosity, Demo)": 2,
-            "Curiosity": 11,
-            "Demo": 9,
-            "Benefit": 7,
-            "Other hooks": 11
+            "Celebrity": 71,
+            "Offer-led": 32,
+            "Demo-led": 22,
+            "Benefit-led": 12,
+            "Curiosity & Question": 5,
+            "Others": 6
           },
-          comment: "Hooks effectively capture attention with problem-focused openings and curiosity-driven questions, receiving high scores.",
-          actions_next_steps_recommendations: "Expand problem-led and curiosity hooks. Integrate hybrid hooks for stronger engagement.",
+          comment: "Celebrity presence functions as the dominant and highly effective hook tactic across video creatives, scoring very high consistently. Image creatives effectively employ direct and hybrid hook tactics such as Offer, Demo, and Benefit, with particular strength in offer-driven hooks featuring clear pricing and product announcements.",
+          actions_next_steps_recommendations: "Continue leveraging major celebrity figures as primary attention grabbers across video. Scale image creatives with clear hooks combining offers and benefits. Consider multi-touchpoint integrations where celebrity appeal is extended across channels. Introduce curiosity or question hooks selectively in brand-led campaigns to diversify engagement without compromising clarity."
         },
         persona_alignment: {
-          score: "V High",
+          score: "High",
           values: {
-            "Skincare-conscious young women": 15,
-            "Young female skincare enthusiast": 6,
-            "Oily skin women": 7,
-            "Health-conscious young women": 7,
-            "Young Indian women": 2,
-            "Other skincare-interested females": 28
+            "Aspirational & Style-conscious": 78,
+            "Indian Car Buyers": 15,
+            "Tech-savvy & Premium Seekers": 18,
+            "SUV & Adventure Seekers": 12,
+            "Value-conscious Buyers": 10,
+            "Safety & Family-focused": 7
           },
-          comment: "Targeted creatives resonate with skincare-conscious young women, enhancing relevance with specific concerns.",
-          actions_next_steps_recommendations: "Refine targeting with clear demographic cues and skin concerns. Explore niche persona segments to broaden reach.",
+          comment: "Video creatives target individuals valuing resilience, clearly communicated through text and visual elements. Image creatives target distinct personas such as aspirational Indian car buyers, tech-savvy and safety-conscious individuals, and young professionals, with evident alignment between visual cues and persona characteristics strengthening audience resonance.",
+          actions_next_steps_recommendations: "Optimize persona targeting by refining messaging to speak directly to resilience attributes in video. Continue tailoring image creative elements to clearly signal consumer identity and needs. Test additional persona segments adjacent to resilience to broaden appeal. Increase focus on aspirational and tech-savvy personas who consistently show strong engagement potential."
         },
       },
       L_logic_and_clarity: {
         message_style: {
           score: "V High",
           values: {
-            "Problem-solution": 27,
-            "How-it-works": 26,
-            "Feature-led": 6,
-            "Other message styles": 12
+            "Single Claim": 86,
+            "Announcement": 22,
+            "Feature-led": 21,
+            "Story-led": 3,
+            "Problem-solution": 2,
+            "How-it-works": 5
           },
-          comment: "Messaging effectively communicates benefits with problem-solution and how-it-works styles, securing high scores.",
-          actions_next_steps_recommendations: "Focus on problem-solution and narrative messaging. Integrate before-after visuals and feature-led elements for depth and clarity.",
+          comment: "Single claim messaging dominates across both formats, producing very high scores and facilitating straightforward aspirational communication. Image creatives also lean heavily towards feature-led and announcement styles delivering clear product information. Story-led and proof-led messaging add narrative depth or credibility when applied.",
+          actions_next_steps_recommendations: "Maintain the singular aspirational claim approach for video to sustain message clarity. Optimize image message style through feature-led and announcement styles. Experiment with layering minimal supportive claims to enhance perceived value without impairing simplicity. Strategically incorporate proof-led elements to enhance credibility in safety or tech-focused campaigns."
         },
         offer_clarity: {
           score: "Low",
           values: {
-            "None": 71
+            "None": 106,
+            "Price & Discount": 34
           },
-          comment: "Offer clarity remains low, impacted by the absence of explicit terms in most creatives.",
-          actions_next_steps_recommendations: "Introduce explicit offers like pricing or trials to enhance clarity and conversion. Test timing and presentation of offers.",
+          comment: "A critical gap in offer clarity persists across both formats. Video creatives provide no explicit offer clarity, resulting in uniformly low scores. Image creatives show bifurcation: explicit pricing or discount offers score very high driving purchase motivation, while the majority lacking any visible offer score lower.",
+          actions_next_steps_recommendations: "Immediately integrate explicit offer details such as pricing, discounts, trials, or value propositions into more creatives across both formats. Test combinations of clear price display with aspirational messaging to balance emotional and rational appeal. Test various formats of explicit offer communication to improve understanding and conversion."
         },
       },
       E_execution_and_action: {
         cta_strength: {
           score: "Low",
           values: {
-            "Direct": 6,
-            "None": 44,
-            "Soft": 21
+            "None": 129,
+            "Direct": 11
           },
-          comment: "Lack of strong CTAs lowers scores. Direct CTAs show potential when present.",
-          actions_next_steps_recommendations: "Embed clear CTAs with strong language. Test CTAs by persona or channel for enhanced conversions.",
+          comment: "A significant deficiency in CTA strength is present across both formats, with no visible call-to-action or explicit next-step instruction in the vast majority of creatives, leading to low scores and conversion risk.",
+          actions_next_steps_recommendations: "Urgently introduce clear, direct CTAs such as 'Book now', 'Learn more', or 'Book a test drive' with high visual prominence across both image and video creatives. Prioritize testing CTA placement, size, and phrasing to optimize click-through and conversion rates. Add prominent actionable language tailored to campaign intent."
         },
         trust_level: {
-          score: "High",
+          score: "Medium",
           values: {
-            "High": 39,
-            "Medium": 27,
-            "Low": 3,
-            "Very high": 2
+            "Very High": 74,
+            "Medium": 47,
+            "High": 17,
+            "Low": 2
           },
-          comment: "Trust is built through testimonials and scientific claims but varies by creative execution.",
-          actions_next_steps_recommendations: "Scale strong trust signals like certifications and testimonials. Strengthen brand-led creatives with explicit endorsements.",
+          comment: "Video creatives achieve very high trust through consistent celebrity presence and reputable brand association. Image creatives show medium baseline trust due to brand presence, rising to very high where strong proof points such as celebrity endorsements or explicit product claims are included. Lack of proof points or ratings reduces trust in image creatives despite brand recognition.",
+          actions_next_steps_recommendations: "Continue reinforcing trust through celebrity association and brand presence in video. Capitalize on trust-building in image creatives by integrating tangible proof points like safety features, awards, or third-party validations. Consider integrating additional trust elements like testimonials or certifications to augment credibility further."
         },
       },
     },

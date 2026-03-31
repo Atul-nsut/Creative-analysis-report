@@ -106,23 +106,23 @@ export default function Index() {
     to: new Date(),
   });
   const [analysisType, setAnalysisType] = useState<"image" | "video" | "both">("both");
-  const [selectedBenchmark, setSelectedBenchmark] = useState("Dot & Key");
+  const [selectedBenchmark, setSelectedBenchmark] = useState("Hyundai");
   const [metaAdsLink, setMetaAdsLink] = useState("");
-  const [selectedEntity, setSelectedEntity] = useState("Pilgrim");
+  const [selectedEntity, setSelectedEntity] = useState("Maruti Suzuki Nexa");
   const [entityMetaAdsLink, setEntityMetaAdsLink] = useState("");
 
   const benchmarkOptions = [
-    "Dot & Key",
-    "Skincare Industry",
-    "Personal Care Industry",
-    "Beauty & Wellness",
-    "D2C Leaders",
+    "Hyundai",
+    "Automotive Industry",
+    "Premium Car Segment",
+    "SUV Category",
+    "EV Leaders",
   ];
 
   const entityOptions = [
-    "Pilgrim",
-    "Brand Variant 1",
-    "Brand Variant 2",
+    "Maruti Suzuki Nexa",
+    "Maruti Suzuki Arena",
+    "Maruti Suzuki Commercial",
     "Custom Brand",
   ];
 
