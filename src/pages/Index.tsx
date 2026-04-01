@@ -1,16 +1,8 @@
 import { useState, useMemo } from "react";
-import { FileText, ChevronDown, Eye, Users, Brain, Zap, Filter, CalendarIcon, Image, Video, Search } from "lucide-react";
-import { format } from "date-fns";
-import { DateRange } from "react-day-picker";
+import { ChevronDown, Eye, Users, Brain, Zap, Filter, Image, Video, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -100,11 +92,6 @@ function getAllGapMetrics(
 export default function Index() {
   const [selectedPillar, setSelectedPillar] = useState<PillarKey | "all">("all");
   const [tagFilter, setTagFilter] = useState("All");
-  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
-  const [dateRange, setDateRange] = useState<DateRange | undefined>({
-    from: new Date(2024, 0, 1),
-    to: new Date(),
-  });
   const [analysisType, setAnalysisType] = useState<"image" | "video" | "both">("both");
   const [selectedBenchmark, setSelectedBenchmark] = useState("Hyundai");
   const [metaAdsLink, setMetaAdsLink] = useState("");
@@ -148,34 +135,6 @@ export default function Index() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const handleExportPDF = () => {
-    if (isGeneratingPDF) return;
-
-    setIsGeneratingPDF(true);
-
-    // Save current state
-    const previousPillar = selectedPillar;
-    const previousFilter = tagFilter;
-
-    // Show all content for PDF export
-    setSelectedPillar("all");
-    setTagFilter("All");
-
-    // Wait for state to update and DOM to re-render
-    setTimeout(() => {
-      // Trigger browser print dialog
-      window.print();
-
-      // Restore previous state after print dialog
-      setTimeout(() => {
-        setSelectedPillar(previousPillar);
-        setTagFilter(previousFilter);
-        setIsGeneratingPDF(false);
-      }, 100);
-    }, 300);
-  };
-
 
   return (
     <div className="min-h-screen bg-background">
@@ -233,45 +192,6 @@ export default function Index() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button variant="outline" size="sm" className="justify-start text-left font-normal">
-                    <CalendarIcon className="h-4 w-4 mr-1.5" />
-                    {dateRange?.from ? (
-                      dateRange.to ? (
-                        <>
-                          {format(dateRange.from, "MMM d, yyyy")} - {format(dateRange.to, "MMM d, yyyy")}
-                        </>
-                      ) : (
-                        format(dateRange.from, "MMM d, yyyy")
-                      )
-                    ) : (
-                      <span>Pick a date range</span>
-                    )}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="end">
-                  <Calendar
-                    initialFocus
-                    mode="range"
-                    defaultMonth={dateRange?.from}
-                    selected={dateRange}
-                    onSelect={setDateRange}
-                    numberOfMonths={2}
-                  />
-                </PopoverContent>
-              </Popover>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleExportPDF}
-                disabled={isGeneratingPDF}
-              >
-                <FileText className="h-4 w-4 mr-1.5" />
-                {isGeneratingPDF ? "Generating..." : "PDF"}
-              </Button>
             </div>
           </div>
 
