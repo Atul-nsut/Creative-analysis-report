@@ -59,8 +59,12 @@ export function calculateGap(entityScore: string, benchmarkScore: string): GapTy
   const entityIndex = order.indexOf(entityScore);
   const benchmarkIndex = order.indexOf(benchmarkScore);
   const diff = benchmarkIndex - entityIndex;
-  
+
   if (diff >= 2) return "CRITICAL GAP";
   if (diff === 1) return "NEEDS UPGRADE";
-  return "BEST-IN-CLASS";
+
+  // Same score or entity is better
+  // Only "BEST-IN-CLASS" if both are High or V High
+  if (entityIndex >= 2) return "BEST-IN-CLASS"; // High or V High
+  return "NEEDS UPGRADE"; // Low or Medium - both need improvement
 }
