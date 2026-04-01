@@ -179,15 +179,15 @@ export const benchmarkReportJSON: ReportData[] = [
         hook_tactic: {
           score: "V High",
           values: {
-            "Celebrity": 71,
-            "Offer-led": 32,
-            "Demo-led": 22,
-            "Benefit-led": 12,
+            "Hybrid Tactics": 21,
+            "Demo-led": 19,
+            "Offer-led": 17,
             "Curiosity & Question": 5,
-            "Others": 6
+            "Benefit-led": 4,
+            "Stat & Authority": 3
           },
-          comment: "Celebrity presence functions as the dominant and highly effective hook tactic across video creatives, scoring very high consistently. Image creatives effectively employ direct and hybrid hook tactics such as Offer, Demo, and Benefit, with particular strength in offer-driven hooks featuring clear pricing and product announcements.",
-          actions_next_steps_recommendations: "Continue leveraging major celebrity figures as primary attention grabbers across video. Scale image creatives with clear hooks combining offers and benefits. Consider multi-touchpoint integrations where celebrity appeal is extended across channels. Introduce curiosity or question hooks selectively in brand-led campaigns to diversify engagement without compromising clarity."
+          comment: "Hook tactics effectively employ direct and hybrid approaches such as Offer, Demo, and Benefit, with particular strength in offer-driven hooks featuring clear pricing and product announcements. Hybrid combinations of offer and demo elements drive strong engagement.",
+          actions_next_steps_recommendations: "Scale creatives with clear hooks combining offers and benefits. Introduce curiosity or question hooks selectively in brand-led campaigns to diversify engagement without compromising clarity. Test hybrid tactics that blend demo with offer messaging for optimal audience resonance."
         },
         persona_alignment: {
           score: "High",
