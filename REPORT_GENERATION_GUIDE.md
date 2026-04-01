@@ -21,11 +21,16 @@ Please update the report following these rules:
 5. Consolidate granular values into 5-7 comparable categories per metric
 6. Keep all scores exactly as provided in the JSON
 7. Do not add data not present in the original JSON
+8. Ensure category names match between both brands for proper comparison
+9. Update dropdown options to reflect the industry context
+10. Run sanity check before committing
 ```
 
 ---
 
 ## Input JSON Structure
+
+The system accepts two JSON formats. Transform either format to the internal structure.
 
 ### Format 1: Output Array Structure
 ```json
@@ -151,68 +156,45 @@ All input must be transformed to this structure in `mockReportData.ts`:
 
 ## Value Consolidation Rules
 
-### IMPORTANT: Do NOT invent categories not present in source data
+### CRITICAL: Do NOT invent categories not present in source data
 
 When consolidating granular values into categories:
 
 1. **Limit to 5-7 categories** per metric for readability
 2. **Preserve total counts** - consolidated values should sum correctly
 3. **Use matching category names** across both brands for comparison
-4. **Group similar items** logically
+4. **Group similar items** logically based on the source data
+5. **Derive categories from actual data** - read the values and group them sensibly
 
-### Recommended Category Templates
+### Consolidation Process
 
-**Thumb Stop Trigger:**
-- Brand-led
-- Product Demo
-- Hybrid Styles
-- Promo-led
-- Cinematic/Editorial
+1. **Read all values** from both brand JSONs for a metric
+2. **Identify common themes** across both datasets
+3. **Create unified categories** that apply to both brands
+4. **Sum related values** into each category
+5. **Verify totals match** original data
 
-**Visual Weight:**
-- Light
-- Medium
-- Minimal
-- Dense
+### Example Consolidation
 
-**Hook Tactic:**
-- Benefit-led
-- Offer-led
-- Demo-led
-- Hybrid Tactics
-- Curiosity & Question
-- Others
+**Before (granular):**
+```json
+{
+  "Category A variant 1": 15,
+  "Category A variant 2": 10,
+  "Category B type 1": 20,
+  "Category B type 2": 5,
+  "Others": 3
+}
+```
 
-**Persona Alignment:**
-- [Primary Persona from data] (largest count)
-- [Secondary segments based on actual data]
-- Group similar personas together
-- Keep 5-6 max categories
-
-**Message Style:**
-- Announcement
-- Single Claim
-- Feature-led
-- Story-led
-- Problem-solution
-- How-it-works
-
-**Offer Clarity:**
-- Price & Discount
-- None
-- Demo & Guarantee
-
-**CTA Strength:**
-- None
-- Direct
-- Soft
-- Strong
-
-**Trust Level:**
-- Very High
-- High
-- Medium
-- Low
+**After (consolidated):**
+```json
+{
+  "Category A": 25,
+  "Category B": 25,
+  "Others": 3
+}
+```
 
 ---
 
@@ -227,14 +209,14 @@ if (diff <= 0 AND entityScore is High/V High) → "BEST-IN-CLASS"
 if (diff <= 0 AND entityScore is Low/Medium) → "NEEDS UPGRADE"
 ```
 
-**Key Rule:** Low-Low or Medium-Medium is NOT "Best-in-Class" - it's "Needs Upgrade"
+**Key Rule:** Low-Low or Medium-Medium is NOT "Best-in-Class" - it's "Needs Upgrade" (both brands need improvement)
 
 ---
 
 ## Files to Update
 
 ### 1. `src/data/mockReportData.ts`
-- `entityReportJSON` - Your brand data
+- `entityReportJSON` - Your brand data (the brand being analyzed)
 - `benchmarkReportJSON` - Competitor/benchmark data
 
 ### 2. `src/pages/Index.tsx`
@@ -247,16 +229,19 @@ const benchmarkOptions = [
   "[BENCHMARK NAME]",
   "[Industry Option 1]",
   "[Industry Option 2]",
-  // ...
+  "[Industry Option 3]",
+  "[Industry Option 4]",
 ];
 
 const entityOptions = [
   "[ENTITY NAME]",
-  "[Variant 1]",
-  "[Variant 2]",
+  "[Brand Variant 1]",
+  "[Brand Variant 2]",
   "Custom Brand",
 ];
 ```
+
+**Note:** Update dropdown options to match the industry context (e.g., Automotive, Skincare, FMCG, etc.)
 
 ### 3. `src/components/report/MetricComparisonCard.tsx`
 Update hardcoded brand names (4 locations):
@@ -281,23 +266,32 @@ Before finalizing, verify:
 - [ ] Values consolidated to 5-7 categories per metric
 - [ ] Category names match between both brands (for comparison)
 - [ ] Brand names updated in all 4 files
-- [ ] No references to old brand names (grep search)
+- [ ] Dropdown options reflect industry context
+- [ ] No references to old brand names (`grep` search)
 - [ ] TypeScript compiles without errors (`npx tsc --noEmit`)
-- [ ] Comments/recommendations are industry-relevant
+- [ ] Comments/recommendations are relevant to the brands
+
+### Sanity Check Commands
+
+```bash
+# Search for old brand names (should return no results)
+grep -r "OLD_BRAND_NAME" src/
+
+# Type check
+npx tsc --noEmit
+
+# Run locally to verify
+npm run dev
+```
 
 ---
 
 ## Deployment Commands
 
 ```bash
-# Type check
-npx tsc --noEmit
-
-# Run locally
-npm run dev
-
-# Commit
-git add . && git commit -m "Update brand comparison: [Entity] vs [Benchmark]"
+# Commit changes
+git add .
+git commit -m "Update brand comparison: [Entity] vs [Benchmark]"
 
 # Push (auto-deploys via Vercel GitHub integration)
 git push
@@ -308,47 +302,55 @@ vercel --prod
 
 ---
 
-## Example Transformation
+## Common Mistakes to Avoid
 
-### Input (Maruti - hook tactic):
-```json
-"hook tactic": {
-  "score": "High",
-  "values": {
-    "Benefit-related": 59,
-    "Offer and Demo": 35,
-    "Others": 6,
-    "Problem": 2,
-    "Social proof & Offer": 4,
-    "Demo related tactics": 7
-  }
-}
-```
-
-### Output (Consolidated):
-```typescript
-hook_tactic: {
-  score: "High",
-  values: {
-    "Benefit-led": 59,
-    "Offer-led": 35,
-    "Demo-led": 7,
-    "Social Proof": 4,
-    "Problem-led": 2,
-    "Others": 6
-  },
-  comment: "...",
-  actions_next_steps_recommendations: "..."
-}
-```
+| Mistake | Correct Approach |
+|---------|------------------|
+| Adding categories not in source data | Only use categories derived from actual JSON values |
+| Changing scores | Keep scores exactly as provided |
+| Mismatched category names between brands | Use identical category names for proper comparison |
+| Forgetting to update all 4 files | Check all files: mockReportData.ts, Index.tsx, MetricComparisonCard.tsx, ComparisonBar.tsx |
+| Not verifying totals | Ensure consolidated values sum to original totals |
+| Industry-inappropriate dropdown options | Update options to match the brand's industry |
+| Leaving old brand references | Run grep search before committing |
 
 ---
 
-## Common Mistakes to Avoid
+## Metric Reference
 
-1. **Do NOT add "Celebrity" or other categories not in source data**
-2. **Do NOT change scores** - keep exactly as provided
-3. **Do NOT assume industry context** - use comments from source JSON
-4. **Do NOT forget to update all 4 files** with brand names
-5. **Ensure matching categories** between both brands for proper comparison
-6. **Run sanity check** after changes to verify data accuracy
+Each metric should contain:
+
+```typescript
+{
+  score: "Low" | "Medium" | "High" | "V High",
+  values: {
+    "Category 1": number,
+    "Category 2": number,
+    // ... 5-7 categories max
+  },
+  comment: string,  // Analysis from source JSON
+  actions_next_steps_recommendations: string  // Recommendations from source JSON
+}
+```
+
+### The 8 Required Metrics
+
+1. **thumb_stop_trigger** (V_visual) - What makes users stop scrolling
+2. **visual_weight** (V_visual) - Density of visual elements
+3. **hook_tactic** (A_audience_resonance) - How attention is captured
+4. **persona_alignment** (A_audience_resonance) - Target audience fit
+5. **message_style** (L_logic_and_clarity) - How message is communicated
+6. **offer_clarity** (L_logic_and_clarity) - Clarity of value proposition
+7. **cta_strength** (E_execution_and_action) - Call-to-action effectiveness
+8. **trust_level** (E_execution_and_action) - Credibility signals
+
+---
+
+## Summary
+
+1. **Paste both JSONs** with the quick start prompt
+2. **Transform data** to internal structure
+3. **Consolidate values** into 5-7 matching categories
+4. **Update 4 files** with new brand names
+5. **Verify** with sanity check
+6. **Deploy** via git push
